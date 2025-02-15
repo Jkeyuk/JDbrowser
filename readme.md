@@ -1,30 +1,8 @@
-# JDbrowser - Sqlite Database Browser
+# JDbrowser - Terminal TUI Sqlite Browser
 
-Browse an Sqlite database from the terminal.
+Browse an Sqlite database from the terminal with a text user interface.
 
-# Installation and Building
-
-No configuration needed.
-
-### Download Binary
-
-Binaries are available for download [Here](https://github.com/Jkeyuk/JDbrowser/releases) 
-
-### Install With Rust
-
-A simple way to install the binary using Rust:
-
-`cargo install --path .`
-
-### Build with Rust
-
-A binary can also be directly built with:
-
-`cargo build --release` 
-
-`cargo build --release --target x86_64-unknown-linux-musl` 
-
-The binary will be available at ***target/release/jdbrowser***
+![table_view](docs/t_view.png) 
 
 # Usage
 
@@ -70,19 +48,49 @@ The binary will be available at ***target/release/jdbrowser***
 | Move Cell Left| h |
 | Move Cell Right | l |
 
+
+# Installation and Building
+
+No configuration needed.
+
+### Download Binary
+
+Binaries are available for download [Here](https://github.com/Jkeyuk/JDbrowser/releases) 
+
+Simply download the binary run `chmod +x ./jdbrowser` and use where ever you want.
+
+### Install With Rust
+
+A simple way to install the binary using Rust:
+
+```bash
+cargo install --path .
+```
+
+### Build with Rust
+
+A binary can also be directly built with:
+
+```bash
+cargo build --release 
+```
+
+or:
+
+```bash
+cargo build --release --target x86_64-unknown-linux-musl 
+```
+
+
+The binary will be available at ***target/release/jdbrowser***
+
 # Screen Shots
 
-![file_menu](docs/filemenu.png) 
+![file_menu](docs/f_view.png) 
 
-![table_view](docs/table_view.png) 
-
-![schema_view](docs/schema_view.png) 
+![schema_view](docs/s_view.png) 
 
 # TODO
 
 - error handling popup
 - handle blob data
-- show preview window
-
-- Add docs like peaclock
-- add shell script to build or install
