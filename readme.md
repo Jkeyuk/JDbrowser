@@ -36,6 +36,13 @@ The binary will be available at ***target/release/jdbrowser***
 
 ## Key Binds
 
+### General
+
+| Action | Keybind |
+| -------------- | --------------- |
+| Exit Application                        | Escape      |
+| Help Menu Open/Close | ?| 
+
 ### File Menu
 
 | Action | Keybind |
@@ -48,20 +55,20 @@ The binary will be available at ***target/release/jdbrowser***
 
 | Action | Keybind |
 | ------------- | -------------- |
-| Tab left - right        |  q, e        |
-| Up        |  k        |
-| Down      |  j        |
+| Show Table/Views        |  q, e        |
+| Up        |  shift + k        |
+| Down      |  shift + j        |
 
 ### Table View
 
 | Action | Keybind |
 | ------------- | -------------- |
-| Tab left - right        |  h, l        |
+| View Data/Schema        |  shift + h, l        |
 | Page Up / Down Half |  u, d |  
-| Up            |  shift + k  |
-| Down            |  shift + j  |
-| Left            |  shift + h  |
-| Right            |  shift + l  |
+| Move Cell Up | k    |
+|    Move Cell Down | j |
+| Move Cell Left| h |
+| Move Cell Right | l |
 
 # Screen Shots
 

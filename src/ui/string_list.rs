@@ -1,4 +1,3 @@
-use crossterm::event::{KeyCode, KeyEvent};
 use ratatui::{
     style::Stylize,
     text::Text,
@@ -14,15 +13,6 @@ pub struct StringList {
 }
 
 impl StringList {
-    pub fn handle_input(&mut self, key: &KeyEvent) {
-        if key.code == KeyCode::Char('k') {
-            self.list_state.select_previous();
-        }
-        if key.code == KeyCode::Char('j') {
-            self.list_state.select_next();
-        }
-    }
-
     pub fn load_items(&mut self, items: Vec<String>) {
         self.list_state
             .select(if !items.is_empty() { Some(0) } else { None });

@@ -76,7 +76,6 @@ impl Ui {
         key: &KeyEvent,
         app: &mut App,
     ) -> Result<(), Box<dyn std::error::Error>> {
-        self.file_list.handle_input(key);
         if key.code == KeyCode::Enter {
             if let Some(path) = self.file_list.get_selected() {
                 app.load_db(path)?;
@@ -84,6 +83,10 @@ impl Ui {
                     self.table_view.load_nav(db);
                 }
             }
+        } else if key.code == KeyCode::Char('k') {
+            self.file_list.list_state.select_previous();
+        } else if key.code == KeyCode::Char('j') {
+            self.file_list.list_state.select_next();
         }
         Ok(())
     }

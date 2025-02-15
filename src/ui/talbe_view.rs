@@ -283,7 +283,7 @@ impl TableView {
         app: &mut App,
     ) -> Result<(), Box<dyn std::error::Error>> {
         if let Some(db) = &app.current_db {
-            if key.code == KeyCode::Char('H') {
+            if key.code == KeyCode::Char('h') {
                 self.table_state.scroll_left_by(1);
                 return Ok(());
             } else if key.code == KeyCode::Char('u') {
@@ -292,25 +292,28 @@ impl TableView {
             } else if key.code == KeyCode::Char('d') {
                 self.table_state.scroll_down_by(self.table_scroll_height);
                 return Ok(());
-            } else if key.code == KeyCode::Char('L') {
+            } else if key.code == KeyCode::Char('l') {
                 self.table_state.scroll_right_by(1);
                 return Ok(());
-            } else if key.code == KeyCode::Char('K') {
+            } else if key.code == KeyCode::Char('k') {
                 self.table_state.scroll_up_by(1);
                 return Ok(());
-            } else if key.code == KeyCode::Char('J') {
+            } else if key.code == KeyCode::Char('j') {
                 self.table_state.scroll_down_by(1);
                 return Ok(());
             } else if key.code == KeyCode::Char('e') {
                 self.table_nav_tab = self.table_nav_tab.next();
             } else if key.code == KeyCode::Char('q') {
                 self.table_nav_tab = self.table_nav_tab.previous();
-            } else if key.code == KeyCode::Char('l') {
+            } else if key.code == KeyCode::Char('L') {
                 self.selected_table_tab = self.selected_table_tab.next();
-            } else if key.code == KeyCode::Char('h') {
+            } else if key.code == KeyCode::Char('H') {
                 self.selected_table_tab = self.selected_table_tab.previous();
+            } else if key.code == KeyCode::Char('K') {
+                self.tables_list.list_state.select_previous();
+            } else if key.code == KeyCode::Char('J') {
+                self.tables_list.list_state.select_next();
             }
-            self.tables_list.handle_input(key);
             self.load_table_data(app, db)?;
         }
         Ok(())

@@ -16,20 +16,20 @@ const FILE_MENU_KEYS: [[&str; 2]; 3] = [["Up", "k"], ["Down", "j"], ["Select", "
 
 const NAV_LIST_TITLE: &str = " Navigation List (Left side) ";
 const NAV_LIST_KEYS: [[&str; 2]; 3] = [
-    ["Switch Tables - Views", "q - e"],
-    ["Up", "k"],
-    ["Down", "j"],
+    ["Show Tables - Views", "q - e"],
+    ["Up", "SHIFT + k"],
+    ["Down", "SHIFT + j"],
 ];
 
 const TABLE_VIEW_TITLE: &str = " Table View ";
 const TABLE_KEYS: [[&str; 2]; 7] = [
-    ["Switch View Schema - Browse Data", "h - l"],
+    ["View Schema - Browse Data", "SHIFT + h - l"],
     ["Page Up Half", "u"],
     ["Page Down Half", "d"],
-    ["Move Cell Up", "shift + k"],
-    ["Move Cell Down", "shift + j"],
-    ["Move Cell Left", "shift + h"],
-    ["Move Cell Right", "shift + l"],
+    ["Move Cell Up", "k"],
+    ["Move Cell Down", "j"],
+    ["Move Cell Left", "h"],
+    ["Move Cell Right", "l"],
 ];
 
 const GENERAL_TITLE: &str = " General ";
@@ -50,7 +50,7 @@ pub fn draw_help_window(frame: &mut Frame, lay: Rect) {
     let split_area = Layout::vertical(Constraint::from_lengths([5, 5, 9, 4]))
         .margin(2)
         .split(area);
-    let widths = Constraint::from_lengths([40, 10]);
+    let widths = Constraint::from_lengths([40, 14]);
 
     let file_menu_table = set_style(
         Table::new(FILE_MENU_KEYS.map(|x| Row::new(x).fg(TEXT_COLOR)), &widths),
