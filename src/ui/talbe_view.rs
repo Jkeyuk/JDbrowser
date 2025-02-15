@@ -1,4 +1,5 @@
 use super::{
+    colors::HIGHLIGHTED_COLOR,
     string_list::{self, StringList},
     SECONDARY_COLOR, TEXT_COLOR,
 };
@@ -54,6 +55,11 @@ impl Widget for SelectedTableTab {
             SelectedTableTab::iter().map(|x| Line::from(x.to_string()).fg(SECONDARY_COLOR).bold()),
         )
         .divider(symbols::DOT)
+        .highlight_style(
+            Style::default()
+                .underlined()
+                .underline_color(HIGHLIGHTED_COLOR),
+        )
         .padding(" ", " ")
         .select(self as usize)
         .block(Block::default().borders(Borders::LEFT))
@@ -98,6 +104,11 @@ impl Widget for NavigationTab {
             NavigationTab::iter().map(|x| Line::from(x.to_string()).fg(SECONDARY_COLOR).bold()),
         )
         .divider(symbols::DOT)
+        .highlight_style(
+            Style::default()
+                .underlined()
+                .underline_color(HIGHLIGHTED_COLOR),
+        )
         .padding(" ", " ")
         .select(self as usize)
         .block(Block::default())
