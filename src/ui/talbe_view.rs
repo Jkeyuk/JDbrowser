@@ -197,7 +197,7 @@ impl TableView {
 
     fn draw_body(&mut self, frame: &mut Frame, table: &app::Table, r: Rect) {
         let margin = 2;
-        let table_inner = Layout::vertical([Constraint::Fill(1)])
+        let full_lay = Layout::vertical([Constraint::Fill(1)])
             .margin(margin)
             .split(r);
         match self.selected_table_tab {
@@ -205,10 +205,26 @@ impl TableView {
                 let p = Paragraph::new(table.sql.trim())
                     .wrap(Wrap { trim: true })
                     .fg(TEXT_COLOR);
-                frame.render_widget(p, table_inner[0]);
+                frame.render_widget(p, full_lay[0]);
             }
             SelectedTableTab::Browse => {
+                let table_inner = Layout::vertical([Constraint::Fill(1), Constraint::Length(3)])
+                    .margin(margin)
+                    .split(r);
                 self.draw_table(frame, table_inner[0], table.name.as_str());
+                if let Some((x, y)) = self.table_state.selected_cell() {
+                    if let Some(row) = self.data.1.get(x) {
+                        if let Some(val) = row.get(y) {
+                            let p = Paragraph::new(val.as_str())
+                                .wrap(Wrap { trim: true })
+                                .fg(TEXT_COLOR)
+                                .block(Block::bordered().border_type(BorderType::Rounded).title(
+                                    " Preview ".fg(SECONDARY_COLOR).bold().into_centered_line(),
+                                ));
+                            frame.render_widget(p, table_inner[1]);
+                        }
+                    }
+                }
             }
         }
     }

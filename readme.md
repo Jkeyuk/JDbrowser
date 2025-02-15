@@ -22,6 +22,8 @@ A binary can also be directly built with:
 
 `cargo build --release` 
 
+`cargo build --release --target x86_64-unknown-linux-musl` 
+
 The binary will be available at ***target/release/jdbrowser***
 
 # Usage
