@@ -21,7 +21,6 @@ pub mod utils;
 
 const APP_NAME: &str = " JDbrowser ";
 
-#[derive(Debug)]
 pub struct Ui {
     file_list: StringList,
     table_view: TableView,

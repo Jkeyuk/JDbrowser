@@ -10,6 +10,7 @@ keywords = ["cli", "tui", "sqlite","browser"]
 categories = ["command-line-utilities"]
 
 [dependencies]
+arboard = { version = "3.4.1" , features = ["wayland-data-control"]}
 clap = { version = "4.5.27" , features = ["derive"]}
 color-eyre = "0.6.3"
 crossterm = "0.28.1"

@@ -4,6 +4,7 @@ use super::{
     SECONDARY_COLOR, TEXT_COLOR,
 };
 use crate::app::{self, App, Db};
+use arboard::Clipboard;
 use crossterm::event::{KeyCode, KeyEvent};
 use ratatui::{
     layout::{Constraint, Layout, Rect},
@@ -116,7 +117,6 @@ impl Widget for NavigationTab {
     }
 }
 
-#[derive(Debug, Default)]
 pub struct TableView {
     pub tables_list: StringList,
     pub view_list: StringList,
@@ -125,6 +125,22 @@ pub struct TableView {
     pub data: (Vec<String>, Vec<Vec<String>>),
     pub table_state: TableState,
     table_scroll_height: u16,
+    clipboard: Clipboard,
+}
+
+impl Default for TableView {
+    fn default() -> Self {
+        Self {
+            tables_list: StringList::default(),
+            view_list: StringList::default(),
+            selected_table_tab: SelectedTableTab::default(),
+            table_nav_tab: NavigationTab::default(),
+            data: (Vec::default(), Vec::default()),
+            table_state: TableState::default(),
+            table_scroll_height: 0,
+            clipboard: Clipboard::new().unwrap(),
+        }
+    }
 }
 
 impl TableView {
@@ -313,10 +329,24 @@ impl TableView {
                 self.tables_list.list_state.select_previous();
             } else if key.code == KeyCode::Char('J') {
                 self.tables_list.list_state.select_next();
+            } else if key.code == KeyCode::Char('y') {
+                self.yank_cell()?;
+                return Ok(());
             }
             self.load_table_data(app, db)?;
         }
         Ok(())
+    }
+
+    fn yank_cell(&mut self) -> Result<(), Box<dyn std::error::Error>> {
+        Ok(if let Some((x, y)) = self.table_state.selected_cell() {
+            if let Some(row) = self.data.1.get(x) {
+                if let Some(val) = row.get(y) {
+                    self.clipboard.set_text(val)?;
+                    return Ok(());
+                }
+            }
+        })
     }
 
     fn load_table_data(&mut self, app: &App, db: &Db) -> Result<(), Box<dyn std::error::Error>> {
