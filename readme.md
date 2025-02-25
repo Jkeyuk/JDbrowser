@@ -1,4 +1,4 @@
-# JDbrowser - Terminal TUI Sqlite Browser
+# JDbrowser - Terminal TUI Sqlite Browser V1.3
 
 Browse an Sqlite database from the terminal with a text user interface.
 
@@ -11,6 +11,9 @@ Browse an Sqlite database from the terminal with a text user interface.
 - Select your database from the initial file menu.
 
 - Use the keybindings to browse the tables and views of your database.
+
+- Copy data to clipboard with `y` key. ( On wayland clipboard text is cleared after exiting JDbrowser )
+
 
 ## Key Binds
 
