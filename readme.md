@@ -85,8 +85,10 @@ cargo build --release
 
 or:
 
+ARM64 Linux (kernel 4.1, glibc 2.17+)
+
 ```bash
-cargo build --release --target x86_64-unknown-linux-musl 
+cargo build --release --target x86_64-unknown-linux-gnu 
 ```
 
 
