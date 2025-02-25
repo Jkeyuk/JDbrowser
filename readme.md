@@ -47,6 +47,7 @@ Browse an Sqlite database from the terminal with a text user interface.
 |    Move Cell Down | j |
 | Move Cell Left| h |
 | Move Cell Right | l |
+| Yank Cell to Clipboard | y |
 
 
 # Installation and Building
