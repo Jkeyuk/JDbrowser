@@ -8,12 +8,26 @@ Browse an Sqlite database from the terminal with a text user interface.
 
 - Run the application from the directory containing the database.
 
+```bash
+jdbrowser
+```
+
 - Select your database from the initial file menu.
+
+> [!NOTE]
+> File menu looks for files with extentions ".db", ".sqlite3", ".db3". To open databases with custom extenstions types, see "Open File directly".
 
 - Use the keybindings to browse the tables and views of your database.
 
 - Copy data to clipboard with `y` key. ( On wayland clipboard text is cleared after exiting JDbrowser )
 
+### Open File directly
+
+You can open a database file directly by passing the file path as an argument.
+
+```bash
+jdbrowser -f file_name.my_wierd_extention
+```
 
 ## Key Binds
 
