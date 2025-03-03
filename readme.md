@@ -15,13 +15,13 @@ jdbrowser
 - Select your database from the initial file menu.
 
 > [!NOTE]
-> File menu looks for files with extentions ".db", ".sqlite3", ".db3". To open databases with custom extenstions types, see "Open File directly".
+> File menu looks for files with extentions ".db", ".sqlite3", ".db3". To open databases with custom extenstions types, see "Open File Directly".
 
 - Use the keybindings to browse the tables and views of your database.
 
 - Copy data to clipboard with `y` key. ( On wayland clipboard text is cleared after exiting JDbrowser )
 
-### Open File directly
+### Open File Directly
 
 You can open a database file directly by passing the file path as an argument.
 
