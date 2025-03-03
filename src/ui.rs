@@ -23,7 +23,7 @@ const APP_NAME: &str = " JDbrowser ";
 
 pub struct Ui {
     file_list: StringList,
-    table_view: TableView,
+    pub table_view: TableView,
     show_help: bool,
 }
 
